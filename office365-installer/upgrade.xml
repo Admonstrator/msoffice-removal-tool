@@ -5,18 +5,24 @@
       <Language ID="MatchPreviousMSI"/>
       <ExcludeApp ID="Groove"/>
       <ExcludeApp ID="Lync" />
+	  <ExcludeApp ID="Publisher" />
+	  <ExcludeApp ID="Access" />
     </Product>
     <Product ID="VisioProRetail" MSICondition="VisPro,VisProR">
       <Language ID="MatchOS"/>
       <Language ID="MatchPreviousMSI"/>
       <ExcludeApp ID="Groove"/>
       <ExcludeApp ID="Lync" />
+	  <ExcludeApp ID="Publisher" />
+	  <ExcludeApp ID="Access" />
     </Product>
     <Product ID="ProjectProRetail" MSICondition="PrjPro,PrjProR">
       <Language ID="MatchOS"/>
       <Language ID="MatchPreviousMSI"/>
       <ExcludeApp ID="Groove"/>
       <ExcludeApp ID="Lync" />
+	  <ExcludeApp ID="Publisher" />
+	  <ExcludeApp ID="Access" />
     </Product>
   </Add>
   <Remove All="TRUE" />
