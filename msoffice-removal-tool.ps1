@@ -9,7 +9,7 @@
   By choosing -InstallOffice365 it tries to install Office 365 as well.
 .PARAMETER InstallOffice365
   Will install Office365 after removal.
-.PARAMETER SupressReboot
+.PARAMETER SuppressReboot
   Will supress the reboot after finishing the script.
 .PARAMETER UseSetupRemoval
   Will use the setup methode to remove current Office installations instead of SaRA.
@@ -31,7 +31,7 @@
 #---------------------------------------------------------[Initialisations]--------------------------------------------------------
 Param (
     [switch]$InstallOffice365 = $False,
-    [switch]$SupressReboot = $False,
+    [switch]$SuppressReboot = $False,
     [switch]$UseSetupRemoval = $False,
     [Switch]$Force = $False
 )
@@ -150,7 +150,7 @@ Function Invoke-SetupOffice365($Office365ConfigFile) {
 }
 
 Function Invoke-Reboot {
-    if (-not $SupressReboot) {
+    if (-not $SuppressReboot) {
         Start-Process -FilePath "$env:SystemRoot\system32\shutdown.exe" -ArgumentList "/r /c `"Reboot needed. System will reboot in 60 seconds.`" /t 60 /f /d p:4:1"
     }
 }
