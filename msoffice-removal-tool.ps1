@@ -13,6 +13,8 @@
   Will supress the reboot after finishing the script.
 .PARAMETER UseSetupRemoval
   Will use the setup methode to remove current Office installations instead of SaRA.
+.PARAMETER Force
+  Skip user-input.
 .INPUTS
   None
 .OUTPUTS
@@ -30,7 +32,8 @@
 Param (
     [switch]$InstallOffice365 = $False,
     [switch]$SupressReboot = $False,
-    [switch]$UseSetupRemoval = $False
+    [switch]$UseSetupRemoval = $False,
+    [Switch]$Force = $False
 )
 
 #----------------------------------------------------------[Declarations]----------------------------------------------------------
@@ -41,17 +44,20 @@ $SaRA_EXE = "$SaRA_DIR\SaRAcmd.exe"
 $Office365Setup_URL = "https://github.com/Admonstrator/msoffice-removal-tool/raw/main/office365-installer"
 #-----------------------------------------------------------[Functions]------------------------------------------------------------
 Function Invoke-OfficeUninstall {
+    if (-Not (Test-Path "$SaRA_DIR")) {
+        New-Item "$SaRA_DIR" -ItemType Directory
+    }
     if ($UseSetupRemoval) {
         Write-Host "Invoking default setup methode ..."
-        Invoke-SetupOffice365 "$Office365Setup_URL\purge.xml"
-        else {
-            Write-Host "Invoking SaRA methode ..."
-            Remove-SaRA
-            Write-Host "Downloading most recent SaRA build ..."
-            Invoke-SaRADownload
-            Write-Host "Removing Office installations ..."
-            Invoke-SaRA 
-        }
+        Invoke-SetupOffice365 "$Office365Setup_URL/purge.xml"
+    }
+    else {
+        Write-Host "Invoking SaRA methode ..."
+        Remove-SaRA
+        Write-Host "Downloading most recent SaRA build ..."
+        Invoke-SaRADownload
+        Write-Host "Removing Office installations ..."
+        Invoke-SaRA 
     }
 }
 Function Invoke-SaRADownload {    
@@ -125,7 +131,7 @@ Function Invoke-SaRA {
 Function Invoke-SetupOffice365($Office365ConfigFile) {
     if ($InstallOffice365) {
         Write-Host "Downloading Office365 Installer ..."
-        Start-BitsTransfer -Source "$Office365Setup_URL\setup.exe" -Destination "$SaRA_DIR\setup.exe"
+        Start-BitsTransfer -Source "$Office365Setup_URL/setup.exe" -Destination "$SaRA_DIR\setup.exe"
         Start-BitsTransfer -Source "$Office365ConfigFile" -Destination "$SaRA_DIR\config.xml"
         Write-Host "Executing Office365 Setup ..."
         $OfficeSetup = Start-Process -FilePath "$SaRA_DIR\setup.exe" -ArgumentList "/configure $SaRA_DIR\config.xml" -Wait -PassThru -NoNewWindow 
@@ -158,9 +164,18 @@ Write-Host "Microsoft Office Removal Tool"
 Write-Host "by Aaron Viehl (101 Frankfurt)"
 Write-Host "einsnulleins.de"
 Write-Host ""
+
+if (-Not $Force) {
+    do {
+        $YesOrNo = Read-Host "Are you sure you want to remove Office from this PC? (y/n)"
+    } while ("y", "n" -notcontains $YesOrNo)
+
+    if ($YesOrNo -eq "n") {
+    exit 1
+    }
+}
+
 Stop-OfficeProcess
 Invoke-OfficeUninstall 
-Invoke-SetupOffice365 "$Office365Setup_URL\upgrade.xml"
+Invoke-SetupOffice365 "$Office365Setup_URL/upgrade.xml"
 Invoke-Reboot
-
-
