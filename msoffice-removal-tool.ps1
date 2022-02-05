@@ -12,7 +12,7 @@
 .PARAMETER SuppressReboot
   Will supress the reboot after finishing the script.
 .PARAMETER UseSetupRemoval
-  Will use the setup methode to remove current Office installations instead of SaRA.
+  Will use the setup method to remove current Office installations instead of SaRA.
 .PARAMETER Force
   Skip user-input.
 .INPUTS
@@ -48,11 +48,11 @@ Function Invoke-OfficeUninstall {
         New-Item "$SaRA_DIR" -ItemType Directory
     }
     if ($UseSetupRemoval) {
-        Write-Host "Invoking default setup methode ..."
+        Write-Host "Invoking default setup method ..."
         Invoke-SetupOffice365 "$Office365Setup_URL/purge.xml"
     }
     else {
-        Write-Host "Invoking SaRA methode ..."
+        Write-Host "Invoking SaRA method ..."
         Remove-SaRA
         Write-Host "Downloading most recent SaRA build ..."
         Invoke-SaRADownload
