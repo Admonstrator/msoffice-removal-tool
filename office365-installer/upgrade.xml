@@ -25,6 +25,4 @@
 	  <ExcludeApp ID="Access" />
     </Product>
   </Add>
-  <Remove All="TRUE" />
-  <RemoveMSI />
 </Configuration>
