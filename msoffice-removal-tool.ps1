@@ -1,5 +1,5 @@
 #requires -version 2
-#//Requires -RunAsAdministrator
+#Requires -RunAsAdministrator
 
 <#
 .SYNOPSIS
