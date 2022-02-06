@@ -32,17 +32,17 @@ By using `-UseSetupRemoval` the Office365 setup method will be used.
 | -Force                 | Non-interactive - No user interaction required                          |
 | -SecondsToReboot [int] | Seconds until the computer will reboot                                  |
 
-### Example
+## Example
 
   ``.\msoffice-removal-tool.ps1 -InstallOffice365 -SuppressReboot -Force``
 
-### Stage mechanism
+## Stage mechanism
 
 To make sure that the program will only do the necessary parts a _stage mechanism_ is builtin. After every stage a registry value will be written to ``HKLM:\Software\OEM\101\M365\Install\CurrentStage``
 
 To overwrite all stages and restart the whole script use ``-RunAgain``.
 
-### Usage
+## Usage
 
 You may use this script without explicit download:
 
