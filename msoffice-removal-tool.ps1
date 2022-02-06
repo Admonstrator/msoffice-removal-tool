@@ -147,7 +147,7 @@ Function Invoke-SetupOffice365($Office365ConfigFile) {
         switch ($OfficeSetup.ExitCode) {
             0 {
                 Write-Host "Install successful!"
-                Set-CurrentStage 3
+                Set-CurrentStage 4
                 Break
             }
 
