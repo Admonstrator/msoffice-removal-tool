@@ -40,7 +40,7 @@ By using `-UseSetupRemoval` the Office365 setup method will be used.
 
 ## Stage mechanism
 
-To make sure that the program will only do the necessary parts a _stage mechanism_ is builtin. After every stage a registry value will be written to ``HKLM:\Software\OEM\101\M365\Install\CurrentStage``
+To make sure that the program will only do the necessary parts a _stage mechanism_ is builtin. After every stage a registry value will be written to ``HKLM:\Software\OEM\Singleton-Factory-GmbH\M365\Install\CurrentStage``
 
 To overwrite all stages and restart the whole script use ``-RunAgain``.
 
