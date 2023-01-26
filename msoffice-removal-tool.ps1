@@ -138,6 +138,14 @@ Function Invoke-SaRA {
 }
 
 Function Invoke-SetupOffice365($Office365ConfigFile) {
+    if ($Office365ConfigFile -eq "$Office365Setup_URL/purge.xml") {
+        Write-Host "Downloading Office365 Installer ..."
+        Start-BitsTransfer -Source "$Office365Setup_URL/setup.exe" -Destination "$SaRA_DIR\setup.exe"
+        Start-BitsTransfer -Source "$Office365ConfigFile" -Destination "$SaRA_DIR\purge.xml"
+        Write-Host "Executing Office365 Setup ..."
+        $OfficeSetup = Start-Process -FilePath "$SaRA_DIR\setup.exe" -ArgumentList "/configure $SaRA_DIR\purge.xml" -Wait -PassThru -NoNewWindow 
+    }
+    
     if ($InstallOffice365) {
         Write-Host "Downloading Office365 Installer ..."
         Start-BitsTransfer -Source "$Office365Setup_URL/setup.exe" -Destination "$SaRA_DIR\setup.exe"
