@@ -199,7 +199,6 @@ if (-Not $Force) {
 }
 
 Invoke-Intro
-exit
 # Check if there is a stage to resume
 if (-not ($RunAgain)) {
     if (Test-Path "HKLM:\Software\OEM\Singleton-Factory-GmbH\M365\Install") {
