@@ -24,7 +24,7 @@
 .OUTPUTS
   Just output on screen
 .NOTES
-  Version:        1.1
+  Version:        1.2
   Author:         Singleton Factory GmbH
   Creation Date:  2023-01-18
   Purpose/Change: New company, new luck
