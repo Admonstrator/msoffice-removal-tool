@@ -109,7 +109,7 @@ Function Stop-OfficeProcess {
 }
 
 Function Invoke-SaRA {
-    $SaRAProcess = Start-Process -FilePath "$SaRA_EXE" -ArgumentList "-S OfficeScrubScenario -AcceptEula" -Wait -PassThru -NoNewWindow
+    $SaRAProcess = Start-Process -FilePath "$SaRA_EXE" -ArgumentList "-S OfficeScrubScenario -AcceptEula -CloseOffice -OfficeVersion All" -Wait -PassThru -NoNewWindow
     switch ($SaRAProcess.ExitCode) {
         0 {
             Write-Host "Uninstall successful!"
