@@ -57,7 +57,7 @@ Created by [Aaron Viehl](https://github.com/Admonstrator) for the community.
 Run the script without cloning the repository:
 
 ```powershell
-iwr https://raw.githubusercontent.com/Admonstrator/msoffice-removal-tool/main/msoffice-removal-tool.ps1 -OutFile msoffice-removal-tool.ps1; powershell -ExecutionPolicy Bypass .\msoffice-removal-tool.ps1
+iwr https://get.admon.me/remove-msoffice -OutFile msoffice-removal-tool.ps1; powershell -ExecutionPolicy Bypass .\msoffice-removal-tool.ps1
 ```
 
 ---
