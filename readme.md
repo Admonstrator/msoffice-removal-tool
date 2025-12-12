@@ -4,7 +4,7 @@
 
 **Remove Office installations with ease!**
 
-[![Latest Release](https://img.shields.io/github/v/release/Admonstrator/msoffice-removal-tool?style=for-the-badge&logo=github&color=blue)](https://github.com/Admonstrator/msoffice-removal-tool/releases/latest) [![License](https://img.shields.io/github/license/Admonstrator/msoffice-removal-tool?style=for-the-badge)](LICENSE) [![Stars](https://img.shields.io/github/stars/Admonstrator/msoffice-removal-tool?style=for-the-badge)](https://github.com/Admonstrator/msoffice-removal-tool/stargazers)
+[![Latest Release](https://img.shields.io/badge/release-N/A-blue?style=for-the-badge&logo=github)](https://github.com/Admonstrator/msoffice-removal-tool/releases/latest) [![License](https://img.shields.io/github/license/Admonstrator/msoffice-removal-tool?style=for-the-badge)](LICENSE) [![Stars](https://img.shields.io/badge/stars-79-yellowgreen?style=for-the-badge&logo=github)](https://github.com/Admonstrator/msoffice-removal-tool/stargazers)
 
 ---
 
@@ -57,7 +57,7 @@ Created by [Aaron Viehl](https://github.com/Admonstrator) for the community.
 Run the script without cloning the repository:
 
 ```powershell
-iwr https://raw.githubusercontent.com/Admonstrator/msoffice-removal-tool/main/msoffice-removal-tool.ps1 -OutFile msoffice-removal-tool.ps1; powershell -ExecutionPolicy Bypass .\msoffice-removal-tool.ps1
+iwr https://get.admon.me/remove-msoffice -OutFile msoffice-removal-tool.ps1; powershell -ExecutionPolicy Bypass .\msoffice-removal-tool.ps1
 ```
 
 ---
@@ -201,5 +201,11 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 **Made with ❤️ by [Admonstrator](https://github.com/Admonstrator)**
 
 ⭐ If you find this useful, please star the repository!
+
+</div>
+
+<div align="center">
+
+_Last updated: 2025-12-12_
 
 </div>
